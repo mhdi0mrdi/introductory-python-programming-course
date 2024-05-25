@@ -1,6 +1,7 @@
 
 from os import system
 from random import randint
+from time import sleep
 
 
 student_list = []
@@ -28,10 +29,10 @@ while True:
             while True:
                 # region creat code
                 while True:
-                    plan_code = str(randint(1000, 9999))
+                    student_code = str(randint(1000, 9999))
 
                     for student in student_list:
-                        if student[12] == plan_code:
+                        if student[12] == student_code:
                             break
                     else:
                         break
@@ -167,13 +168,23 @@ while True:
                         continue
                     else:
                         break
-                
+
                 # endregion
 
                 # region description
                 description = input("description :")
                 # endregion
 
+                student = [name, family, gender, age, national_code, phone,
+                           address, class_, php, python, description, student_code]
+                student_list.append(student)
+
+                sleep(2)
+                system("cls")
+
+                if input("Do you want to continue (yes-etc) : ") != "yes":
+                    system("cls")
+                    break
 
         case "S" | "2":
             pass
