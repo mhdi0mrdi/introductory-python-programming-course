@@ -1,4 +1,5 @@
 
+from copy import deepcopy
 from os import system
 from random import randint
 from time import sleep
@@ -187,10 +188,80 @@ while True:
                     break
 
         case "S" | "2":
-            pass
+            display_colomn = [
+                "Full name : ", "Age : ", "Gender : ", "Phone : ", "National code : "
+                "Student code : " "Class : ", "Description : ", "PHP : ", "Python : "]
+
+            display_index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+            print(display_colomn)
 
         case "R" | "3":
-            pass
+            if input("Are you sure delete all students? (yes,etc)") != "yes":
+                system("cls")
+                break
+
+            system("cls")
+
+            # region show atudwnts
+
+            # endregion
+
+            if input("\n\nDo you want to remove all students? (yes,etc)") == "yes":
+                system("cls")
+                student_list.clear()
+                print("done!")
+                break
+
+            else:
+                system("cls")
+
+                # region set remove index
+                while True:
+                    remove_colomn = input(
+                        "select remove colomn (1.name 2.family 3.gender 4.national code 5.phone 6.class 7.student code) :")
+                    system("cls")
+
+                    if remove_colomn in ["1", "2", "3", "4", "5", "6", "7"]:
+                        break
+
+                    print("error!")
+                # endregion
+                match remove_colomn:
+                    case "1":
+                        remove_index = 0
+                    case "2":
+                        remove_index = 1
+                    case "3":
+                        remove_index = 2
+                    case "4":
+                        remove_index = 4
+                    case "5":
+                        remove_index = 5
+                    case "6":
+                        remove_index =7
+                    case "7":
+                        remove_index = 11
+                
+                    # region show todos``
+                    
+                    # endregion
+
+                remove_value = input("remove value :")
+                system("cls")
+                check_find = False
+
+                for student in deepcopy(student_list):
+                    if student[student_list] == remove_value:
+                        check_find = True
+
+
+                        student_list.remove(student)
+                        system("cls")
+                        
+
+        
+
 
         case "E" | "4":
             pass
