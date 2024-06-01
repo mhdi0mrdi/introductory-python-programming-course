@@ -6,8 +6,8 @@ from time import sleep
 
 student_list = []
 
-# region menu
 while True:
+    # region menu
     print("[A]dd student (1) :")
     print("[S]how student (2) :")
     print("[R]emove student (3) :")
@@ -22,7 +22,7 @@ while True:
 
     menu = input("enter menu num :")
     system("cls")
-# endregion
+    # endregion
 
     match menu:
         case "A" | "1":
@@ -44,10 +44,9 @@ while True:
                     system("cls")
 
                     if name == "":
-                        print("error! field is empty")
-                        continue
-                    else:
                         break
+
+                    print("error! field is empty")
 
                 # endregion
 
@@ -148,31 +147,29 @@ while True:
 
                 # region PHP
                 while True:
-                    php = int(input("php score :"))
+                    php = float(input("php score :"))
                     system("cls")
 
-                    if php not in range(0, 101):
-                        print("error! score not in range")
-                        continue
-                    else:
+                    if 0 <= php <= 100:
                         break
+
+                    print("error! score not in range")
                 # endregion
 
                 # region python
                 while True:
-                    python = int(input("python score :"))
+                    python = float(input("python score :"))
                     system("cls")
 
-                    if python not in range(0, 101):
-                        print("error! score not in range")
-                        continue
-                    else:
+                    if 0 <= python <= 100:
                         break
 
+                    print("error! score not in range")
                 # endregion
 
                 # region description
                 description = input("description :")
+                system('cls')
                 # endregion
 
                 student = [name, family, gender, age, national_code, phone,
@@ -187,7 +184,17 @@ while True:
                     break
 
         case "S" | "2":
-            pass
+
+            for student in student_list:
+                print(f"fullname : {student[0]} {
+                      student[1]} - age : {student[3]}")
+                print(f"gender :, {student[2]} - phone : {student[5]} ")
+                print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                print(f"address : {student[6]}")
+                print(f"class : {student[7]}")
+                print(f"description : {student[10]}")
+                print(
+                    f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
 
         case "R" | "3":
             pass
