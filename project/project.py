@@ -197,14 +197,12 @@ while True:
                 print(f"description : {student[10]}")
                 print(
                     f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
-            
-            display_index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
+            display_index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
             if input("press enter to continue :") == "":
                 system('cls')
                 continue
-            
 
         case "R" | "3":
             while True:
@@ -214,14 +212,14 @@ while True:
                     sleep(2)
                     system('cls')
                     break
-                
 
             # region show atudwnts
                 for student in student_list:
                     print(f"fullname : {student[0]} {
                         student[1]} - age : {student[3]}")
                     print(f"gender :, {student[2]} - phone : {student[5]} ")
-                    print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                    print(f"nationalcode : {
+                          student[4]} - stdcode : {student[11]}")
                     print(f"address : {student[6]}")
                     print(f"class : {student[7]}")
                     print(f"description : {student[10]}")
@@ -251,12 +249,10 @@ while True:
                         case "5":
                             remove_index = 5
                         case "6":
-                            remove_index =7
+                            remove_index = 7
                         case "7":
                             remove_index = 11
-                    
-                        # region show todos``
-                        
+
                         # endregion
 
                     remove_value = input("remove value :")
@@ -268,17 +264,19 @@ while True:
                             check_find = True
                             print(f"fullname : {student[0]} {
                                 student[1]} - age : {student[3]}")
-                            print(f"gender :, {student[2]} - phone : {student[5]} ")
-                            print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                            print(f"gender :, {
+                                  student[2]} - phone : {student[5]} ")
+                            print(f"nationalcode : {
+                                  student[4]} - stdcode : {student[11]}")
                             print(f"address : {student[6]}")
                             print(f"class : {student[7]}")
                             print(f"description : {student[10]}")
                             print(
                                 f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
-                        
+
                             if input("Are you sure delete this student (yes-etc) : ") == "yes":
                                 system("cls")
-                                student_list.remove(studentB)
+                                student_list.remove(student)
                                 print("Done!!!")
                             else:
                                 system("cls")
@@ -287,9 +285,162 @@ while True:
                     if not check_find:
                         print(f"{remove_value} not found")
 
-
         case "E" | "4":
-            pass
+            while True:
+                if input("\nAre you sure edit syudents (yes-etc) : ") != "yes":
+                    system("cls")
+                    break
+
+                system("cls")
+
+                # region get edit base
+                while True:
+                    edit_base = input(
+                        "Select remove column (1.national code 2.phone 3.student code) : ")
+                    system("cls")
+
+                    if edit_base in ["1", "2", "3"]:
+                        break
+
+                    print("Error!")
+                # endregion
+
+                # region show students
+                print(f"fullname : {student[0]} {
+                      student[1]} - age : {student[3]}")
+                print(f"gender :, {student[2]} - phone : {student[5]} ")
+                print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                print(f"address : {student[6]}")
+                print(f"class : {student[7]}")
+                print(f"description : {student[10]}")
+                print(
+                    f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                # endregion
+
+                # region get search value
+                match edit_base:
+                    case "1":
+                        search_value = input("\nnational code ")
+                        search_index = 4
+                    case "2":
+                        search_value = input("\nphone :")
+                        search_index = 5
+                    case "2":
+                        search_value = input("\nstudent code :")
+                        search_index = 11
+                # endregion
+                system('cls')
+
+                for student in student_list:
+                    if student[search_index] == search_value:
+                        find_student = student
+                        break
+                else:
+                    print(f"{search_value} not found")
+                    continue
+
+                while True:
+                    print("\nFind student :")
+                    print("-----------------------------")
+                    print(f"name : {find_student[0]}")
+                    print(f"family : {find_student[1]}")
+                    print(f"gender : {find_student[2]}")
+                    print(f"age : {find_student[3]}")
+                    print(f"national code : {find_student[4]}")
+                    print(f"phone : {find_student[5]}")
+                    print(f"address : {find_student[6]}")
+                    print(f"class : {find_student[7]}")
+                    print(f"php : {find_student[8]}")
+                    print(f"python : {find_student[9]}")
+                    print(f"description : {find_student[10]}")
+                    print(f"student code : {find_student[11]}")
+
+                    edit_item = input(
+                        "\n1.name 2.family 3.gender 4.age 5.national code 6.phone 7.address 8.class 9.php 10.python 11.description 12.status 13.Exit : ")
+                    system("cls")
+
+                    if edit_item == "1":
+                        # region newtitle
+                        while True:
+                            new_name = input('name :')
+                            system("cls")
+
+                            if new_name == "":
+                                print("error! field is empty")
+                                continue
+
+                            if new_name == find_student[0]:
+                                break
+
+                            for student in student_list:
+                                if student[0] == new_name:
+                                    print(new_name, "exist")
+                                    break
+                            else:
+                                break
+                        # endregion
+                        find_student[0] = new_name
+
+                    elif edit_item == "2":
+                        # region newtitle
+                        while True:
+                            new_family = input('family :')
+                            system("cls")
+
+                            if new_family == "":
+                                print("error! field is empty")
+                                continue
+
+                            if new_family == find_student[1]:
+                                break
+
+                            for student in student_list:
+                                if student[1] == new_family:
+                                    print(new_family, "exist")
+                                    break
+                            else:
+                                break
+                            # endregion
+                        find_student[1] = new_family
+
+                    elif edit_item == "3":
+                        # region newtitle
+                        while True:
+                            new_gender = input('gender :')
+                            system("cls")
+
+                            if new_gender == "":
+                                print("error! field is empty")
+                                continue
+
+                            if gender not in ("male", "female", "other"):
+                                print("invalid gender!")
+                                continue
+
+                            if new_gender == find_student[2]:
+                                break
+
+                            for student in student_list:
+                                if student[2] == new_gender:
+                                    print(new_gender, "exist")
+                                    break
+                            else:
+                                break
+                            # endregion
+                        find_student[2] = new_gender
+
+                    elif edit_item == "4":
+                        # region new age
+                        new_age = int(input("age :"))
+                        system("cls")
+
+                        if age not in range(7, 50):
+                            print("error! out of range")
+                            continue
+
+                        system("cls")
+                        # endregion
+                        find_student[3] = new_age
 
         case "SE" | "5":
             pass
