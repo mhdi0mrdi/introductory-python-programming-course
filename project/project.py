@@ -175,8 +175,19 @@ while True:
                 system('cls')
                 # endregion
 
+                # region status
+                while True:
+                    status = input("Status (active - deactive) : ")
+                    system("cls")
+
+                    if status in ["active", "deactive"]:
+                        break
+
+                    print("Error!")
+                # endregion
+
                 student = [name, family, gender, age, national_code, phone,
-                           address, class_, php, python, description, student_code]
+                           address, class_, php, python, description, student_code, status]
                 student_list.append(student)
 
                 system("cls")
@@ -198,6 +209,7 @@ while True:
                 print(f"description : {student[10]}")
                 print(
                     f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                print(f"status : {student[12]}")
 
             display_index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -214,7 +226,7 @@ while True:
                     system('cls')
                     break
 
-            # region show atudwnts
+                # region show students
                 for student in student_list:
                     print(f"fullname : {student[0]} {
                         student[1]} - age : {student[3]}")
@@ -226,6 +238,7 @@ while True:
                     print(f"description : {student[10]}")
                     print(
                         f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                    print(f"status : {student[12]}")
                 # endregion
                     # region set remove index
                     while True:
@@ -274,6 +287,7 @@ while True:
                             print(f"description : {student[10]}")
                             print(
                                 f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                            print(f"status : {student[12]}")
 
                             if input("Are you sure delete this student (yes-etc) : ") == "yes":
                                 system("cls")
@@ -316,6 +330,7 @@ while True:
                 print(f"description : {student[10]}")
                 print(
                     f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                print(f"status : {student[12]}")
                 # endregion
 
                 # region get search value
@@ -355,7 +370,7 @@ while True:
                     print(f"python : {find_student[9]}")
                     print(f"description : {find_student[10]}")
                     print(f"student code : {find_student[11]}")
-
+                    print(f"status : {find_student[12]}")
                     edit_item = input(
                         "\n1.name 2.family 3.gender 4.age 5.national code 6.phone 7.address 8.class 9.php 10.python 11.description 12.status 13.Exit : ")
                     system("cls")
@@ -541,6 +556,19 @@ while True:
                         find_student[10] = new_description
 
                     elif edit_item == "12":
+                        # region new status
+                        while True:
+                            new_status = input("Status (active - deactive) : ")
+                            system("cls")
+
+                            if new_status in ["active", "deactive"]:
+                                break
+
+                            print("Error!")
+                        # endregion
+                        find_student[11] = new_status
+
+                    elif edit_item == "13":
                         break
 
                     else:
@@ -603,30 +631,138 @@ while True:
                 if student[search_index] == value:
                     print(*student, sep="\t")
 
-
         case "AC" | "6":
             while True:
-                # region show students
-                print(f"fullname : {student[0]} {
-                      student[1]} - age : {student[3]}")
-                print(f"gender :, {student[2]} - phone : {student[5]} ")
-                print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
-                print(f"address : {student[6]}")
-                print(f"class : {student[7]}")
-                print(f"description : {student[10]}")
-                print(
-                    f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                # region show deactivated students
+                for student in student_list:
+                    if student[12] == "deactive":
+                        print(f"fullname : {student[0]} {
+                            student[1]} - age : {student[3]}")
+                        print(f"gender :, {student[2]} - phone : {student[5]} ")
+                        print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                        print(f"address : {student[6]}")
+                        print(f"class : {student[7]}")
+                        print(f"description : {student[10]}")
+                        print(
+                            f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                        print(f"status : {student[12]}")
                 # endregion
 
+                active_menu = input("1.national code 2.phone 3.code 4.exit")
+                system("cls")
 
+                if active_menu == "4":
+                    break
 
+                match active_menu:
+                    case "1":
+                        nationalcode = input("national code (exit): ")
+                        system("cls")
 
+                        if code == "exit":
+                            break
 
+                        for student in student_list:
+                            if student[5] == nationalcode:
+                                student[12] = "active"
+                                break
+                        else:
+                            print(nationalcode, "does not exist")
+                    
+                    case "2":
+                        phonee = input("phone (exit): ")
+                        system("cls")
 
+                        if code == "exit":
+                            break
+
+                        for student in student_list:
+                            if student[5] == phonee:
+                                student[12] = "active"
+                                break
+                        else:
+                            print(phonee, "does not exist")
+
+                    case "3":
+                        code = input("code (exit):")
+                        system("cls")
+
+                        if code == "exit":
+                            break
+
+                        for student in student_list:
+                            if student[11] == code:
+                                student[12] = "active"
+                                break
+                        else:
+                            print(code, "does not exist")
 
 
         case "DE" | "7":
-            pass
+            while True:
+                # region show activated students
+                for student in student_list:
+                    if student[12] == "active":
+                        print(f"fullname : {student[0]} {
+                            student[1]} - age : {student[3]}")
+                        print(f"gender :, {student[2]} - phone : {student[5]} ")
+                        print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                        print(f"address : {student[6]}")
+                        print(f"class : {student[7]}")
+                        print(f"description : {student[10]}")
+                        print(
+                            f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                        print(f"status : {student[12]}")
+                # endregion
+
+                deactive_menu = input("1.national code 2.phone 3.code 4.exit")
+                system("cls")
+
+                if deactive_menu == "4":
+                    break
+
+                match deactive_menu:
+                    case "1":
+                        nationalcode = input("national code (exit): ")
+                        system("cls")
+
+                        if code == "exit":
+                            break
+                        
+                        for student in student_list:
+                            if student[5] == nationalcode:
+                                student[12] = "deactive"
+                                break
+                        else:
+                            print(nationalcode, "does not exist")
+                    
+                    case "2":
+                        phonee = input("phone (exit): ")
+                        system("cls")
+
+                        if code == "exit":
+                            break
+
+                        for student in student_list:
+                            if student[5] == phonee:
+                                student[12] = "deactive"
+                                break
+                        else:
+                            print(phonee, "does not exist")
+
+                    case "3":
+                        code = input("code (exit):")
+                        system("cls")
+
+                        if code == "exit":
+                            break
+
+                        for student in student_list:
+                            if student[11] == code:
+                                student[12] = "deactive"
+                                break
+                        else:
+                            print(code, "does not exist")
 
         case "PHP" | "8":
             pass
@@ -638,7 +774,7 @@ while True:
             pass
 
         case "EX" | "11":
-            pass
+            break
 
         case _:
             print("error!")
