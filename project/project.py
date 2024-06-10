@@ -547,10 +547,83 @@ while True:
                         print("error!!!")
 
         case "SE" | "5":
-            pass
+            # region set search menu
+            while True:
+                print(f"[N]ame (1)")
+                print(f"[F]amily (2)")
+                print(f"[G]ender (3)")
+                print(f"[A]ge (4)")
+                print(f"[NA]tional code (5)")
+                print(f"[P]hone : (6)")
+                print(f"[S]tudent code (7)")
+                print(f"[C]lass (8)")
+                print(f"[PHP] (9)")
+                print(f"[PY]thon (10)")
+                print("[E]xit (11)")
+                search_menu = input("search item :")
+                system('cls')
+
+                if search_menu in ["1", "N", "2", "F", "3", "G", "4", "A",
+                                   "5", "NA", "6", "P", "7", "S", "8", "C", "9",
+                                   "PHP", "10", "PY", "11", "E"]:
+                    break
+
+                print("error!!!")
+            # endregion
+
+            if search_menu in ["11", "E"]:
+                continue
+
+            value = input("Search value : ")
+            system("cls")
+
+            match search_menu:
+                case "1" | "N":
+                    search_index = 0
+                case "2" | "F":
+                    search_index = 1
+                case "3" | "G":
+                    search_index = 2
+                case "4" | "A":
+                    search_index = 3
+                case "5" | "NA":
+                    search_index = 4
+                case "6" | "P":
+                    search_index = 5
+                case "7" | "S":
+                    search_index = 11
+                case "8" | "C":
+                    search_index = 7
+                case "9" | "PHP":
+                    search_index = 8
+                case "10" | "PY":
+                    search_index = 9
+
+            for student in student_list:
+                if student[search_index] == value:
+                    print(*student, sep="\t")
+
 
         case "AC" | "6":
-            pass
+            while True:
+                # region show students
+                print(f"fullname : {student[0]} {
+                      student[1]} - age : {student[3]}")
+                print(f"gender :, {student[2]} - phone : {student[5]} ")
+                print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                print(f"address : {student[6]}")
+                print(f"class : {student[7]}")
+                print(f"description : {student[10]}")
+                print(
+                    f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                # endregion
+
+
+
+
+
+
+
 
         case "DE" | "7":
             pass
