@@ -1,0 +1,17 @@
+git init
+git status
+
+git add filename
+git rm --cached filename
+
+git add .
+git commit -m "message" 
+
+git commit -a -m  "remove fullname"
+
+
+
+
+
+
+
