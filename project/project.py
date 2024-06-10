@@ -3,6 +3,7 @@ from copy import deepcopy
 from os import system
 from random import randint
 from time import sleep
+from types import new_class
 
 
 student_list = []
@@ -114,7 +115,7 @@ while True:
                     phone = input("phone:")
                     system("cls")
 
-                    if national_code == "":
+                    if phone == "":
                         print("field is empty")
                         continue
 
@@ -360,7 +361,7 @@ while True:
                     system("cls")
 
                     if edit_item == "1":
-                        # region newtitle
+                        # region new name
                         while True:
                             new_name = input('name :')
                             system("cls")
@@ -382,7 +383,7 @@ while True:
                         find_student[0] = new_name
 
                     elif edit_item == "2":
-                        # region newtitle
+                        # region new family
                         while True:
                             new_family = input('family :')
                             system("cls")
@@ -404,7 +405,7 @@ while True:
                         find_student[1] = new_family
 
                     elif edit_item == "3":
-                        # region newtitle
+                        # region gender
                         while True:
                             new_gender = input('gender :')
                             system("cls")
@@ -441,6 +442,109 @@ while True:
                         system("cls")
                         # endregion
                         find_student[3] = new_age
+
+                    elif edit_item == "5":
+                        # region new national code
+                        while True:
+                            new_national_code = input("national code:")
+                            system("cls")
+
+                            if new_national_code == "":
+                                system("cls")
+                                print("field is empty")
+                                continue
+
+                            for student in student_list:
+                                if student[4] == new_national_code:
+                                    print(f"{new_national_code} already exist")
+                                    break
+                            else:
+                                break
+                        # endregion
+                        find_student[4] = new_national_code
+
+                    elif edit_item == "6":
+                        # region new phone
+                        while True:
+                            new_phone = input("phone :")
+                            system("cls")
+
+                            if new_phone == "":
+                                print("field is empty")
+                                continue
+
+                            for student in student_list:
+                                if student[5] == new_phone:
+                                    print(f"{new_phone} already exist")
+                                    break
+                            else:
+                                break
+                        # endregion
+                        find_student[5] = new_phone
+
+                    elif edit_item == "7":
+                        # region new address
+                        new_address = input("address :")
+                        system("cls")
+                        # endregion
+                        find_student[6] = new_address
+
+                    elif edit_item == "8":
+                        # region new class
+                        while True:
+                            new_class_ = input("class :(A,B,C,D)")
+                            system("cls")
+
+                            if new_class_ == "":
+                                print("error! field is empty")
+                                continue
+
+                            elif new_class_ not in ("A", "B", "C", "D"):
+                                print("error! invalid class")
+                                continue
+                            else:
+                                break
+                        # endregion
+                        find_student[7] = new_class_
+
+                    elif edit_item == "9":
+                        # region new php
+                        while True:
+                            new_php = float(input("php score :"))
+                            system("cls")
+
+                            if 0 <= new_php <= 100:
+                                break
+
+                            print("error! score not in range")
+                        # endregion
+                        find_student[8] = new_php
+
+                    elif edit_item == "10":
+                        # region new python
+                        while True:
+                            new_python = float(input("python score :"))
+                            system("cls")
+
+                            if 0 <= new_python <= 100:
+                                break
+
+                            print("error! score not in range")
+                        # endregion
+                        find_student[9] = new_python
+
+                    elif edit_item == "11":
+                        # region new description
+                        new_description = input("description :")
+                        system('cls')
+                        # endregion
+                        find_student[10] = new_description
+
+                    elif edit_item == "12":
+                        break
+
+                    else:
+                        print("error!!!")
 
         case "SE" | "5":
             pass
