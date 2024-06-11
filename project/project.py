@@ -7,6 +7,8 @@ from types import new_class
 
 
 student_list = []
+php_list = []
+python_list = []
 
 while True:
     # region menu
@@ -150,7 +152,7 @@ while True:
 
                 # region PHP
                 while True:
-                    php = float(input("php score :"))
+                    php = int(input("php score :"))
                     system("cls")
 
                     if 0 <= php <= 100:
@@ -161,7 +163,7 @@ while True:
 
                 # region python
                 while True:
-                    python = float(input("python score :"))
+                    python = int(input("python score :"))
                     system("cls")
 
                     if 0 <= python <= 100:
@@ -208,8 +210,8 @@ while True:
                 print(f"class : {student[7]}")
                 print(f"description : {student[10]}")
                 print(
-                    f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
-                print(f"status : {student[12]}")
+                    f"php : {student[8]} - python : {student[9]}")
+                print(f"status : {student[12]}" "end=\n\n\n")
 
             display_index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -638,8 +640,10 @@ while True:
                     if student[12] == "deactive":
                         print(f"fullname : {student[0]} {
                             student[1]} - age : {student[3]}")
-                        print(f"gender :, {student[2]} - phone : {student[5]} ")
-                        print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                        print(f"gender :, {
+                              student[2]} - phone : {student[5]} ")
+                        print(f"nationalcode : {
+                              student[4]} - stdcode : {student[11]}")
                         print(f"address : {student[6]}")
                         print(f"class : {student[7]}")
                         print(f"description : {student[10]}")
@@ -668,7 +672,7 @@ while True:
                                 break
                         else:
                             print(nationalcode, "does not exist")
-                    
+
                     case "2":
                         phonee = input("phone (exit): ")
                         system("cls")
@@ -697,7 +701,6 @@ while True:
                         else:
                             print(code, "does not exist")
 
-
         case "DE" | "7":
             while True:
                 # region show activated students
@@ -705,8 +708,10 @@ while True:
                     if student[12] == "active":
                         print(f"fullname : {student[0]} {
                             student[1]} - age : {student[3]}")
-                        print(f"gender :, {student[2]} - phone : {student[5]} ")
-                        print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                        print(f"gender :, {
+                              student[2]} - phone : {student[5]} ")
+                        print(f"nationalcode : {
+                              student[4]} - stdcode : {student[11]}")
                         print(f"address : {student[6]}")
                         print(f"class : {student[7]}")
                         print(f"description : {student[10]}")
@@ -728,14 +733,14 @@ while True:
 
                         if code == "exit":
                             break
-                        
+
                         for student in student_list:
                             if student[5] == nationalcode:
                                 student[12] = "deactive"
                                 break
                         else:
                             print(nationalcode, "does not exist")
-                    
+
                     case "2":
                         phonee = input("phone (exit): ")
                         system("cls")
@@ -765,10 +770,19 @@ while True:
                             print(code, "does not exist")
 
         case "PHP" | "8":
-            pass
+            for student in student_list:
+                php_list.append(student[8])
+                system('cls')
+                print(f"the best php score is {max(php_list)}")
+
+                
 
         case "PY" | "9":
-            pass
+            for student in student_list:
+                python_list.append(student[9])
+                system('cls')
+                print(f"the best python score is {max(python_list)}")
+
 
         case "AVJ" | "10":
             pass
