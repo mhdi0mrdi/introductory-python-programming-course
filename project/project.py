@@ -3,10 +3,16 @@ from copy import deepcopy
 from os import system
 from random import randint
 from time import sleep
-from types import new_class
 
 
-student_list = []
+student_list = [["mahdi", "moradi", "male", "19", "0110523555", "09022333616",
+                           "tehran", "A", "89", "76", "moz", "1001", "active"],
+                           ["negar", "davoudi", "female", "22", "05432445643", "09051202401",
+                           "abazar", "B", "76", "45", "hichi", "1002", "deactive"],
+                           ["bahar", "davoudi", "female", "22", "05432445643", "09051287889",
+                           "iran", "C", "99", "78", "hichiz", "1003", "deactive"],
+                           ["soheil", "ezazi", "male", "18", "0577879090", "09051888900",
+                           "marzdaran", "D", "34", "15", "hichiii", "1003", "active"]]
 php_list = []
 python_list = []
 
@@ -21,8 +27,7 @@ while True:
     print("[DE]active student (7) :")
     print("[PHP] best (8) :")
     print("[PY]thon best (9) :")
-    print("[AVJ] best (10) :")
-    print("[EX]it (11) :")
+    print("[EX]it (10) :")
 
     menu = input("enter menu num :")
     system("cls")
@@ -96,7 +101,7 @@ while True:
 
                 # region national code
                 while True:
-                    national_code = input("national code:")
+                    national_code = input("national code :")
                     system("cls")
 
                     if national_code == "":
@@ -114,7 +119,7 @@ while True:
 
                 # region phone
                 while True:
-                    phone = input("phone:")
+                    phone = input("phone :")
                     system("cls")
 
                     if phone == "":
@@ -136,7 +141,7 @@ while True:
 
                 # region class
                 while True:
-                    class_ = input("class :(A,B,C,D)")
+                    class_ = input("class (A,B,C,D) :")
                     system("cls")
 
                     if class_ == "":
@@ -221,26 +226,29 @@ while True:
 
         case "R" | "3":
             while True:
-                if input("Are you sure delete all students? (yes,etc)") == "yes":
+                if input("Are you sure delete all students? (yes,etc) :") == "yes":
                     system("cls")
+                    student_list.clear()
                     print("done!")
                     sleep(2)
                     system('cls')
                     break
+                else:
+                    system('cls')
+                    
 
                 # region show students
                 for student in student_list:
                     print(f"fullname : {student[0]} {
                         student[1]} - age : {student[3]}")
                     print(f"gender :, {student[2]} - phone : {student[5]} ")
-                    print(f"nationalcode : {
-                          student[4]} - stdcode : {student[11]}")
+                    print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
                     print(f"address : {student[6]}")
                     print(f"class : {student[7]}")
                     print(f"description : {student[10]}")
                     print(
-                        f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
-                    print(f"status : {student[12]}")
+                        f"php : {student[8]} - python : {student[9]}")
+                    print(f"status : {student[12]}" "end=\n\n\n")
                 # endregion
                     # region set remove index
                     while True:
@@ -773,7 +781,8 @@ while True:
             for student in student_list:
                 php_list.append(student[8])
                 system('cls')
-                print(f"the best php score is {max(php_list)}")
+            
+            print(f"the best php score is {max(php_list)}")
 
                 
 
@@ -784,10 +793,7 @@ while True:
                 print(f"the best python score is {max(python_list)}")
 
 
-        case "AVJ" | "10":
-            pass
-
-        case "EX" | "11":
+        case "EX" | "10":
             break
 
         case _:
