@@ -611,7 +611,7 @@ while True:
 
             if search_menu in ["11", "E"]:
                 continue
-
+            
             value = input("Search value : ")
             system("cls")
 
@@ -639,7 +639,20 @@ while True:
 
             for student in student_list:
                 if student[search_index] == value:
-                    print(*student, sep="\t")
+                    system('cls')
+                    print(f"fullname : {student[0]} {
+                      student[1]} - age : {student[3]}")
+                    print(f"gender :, {student[2]} - phone : {student[5]} ")
+                    print(f"nationalcode : {student[4]} - stdcode : {student[11]}")
+                    print(f"address : {student[6]}")
+                    print(f"class : {student[7]}")
+                    print(f"description : {student[10]}")
+                    print(
+                        f"php : {student[8]} - python : {student[9]}")
+                    print(f"status : {student[12]}" "end=\n\n\n")
+                    if input("press enter to continue :") == "":
+                        system('cls')
+                        break
 
         case "AC" | "6":
             while True:
@@ -656,11 +669,12 @@ while True:
                         print(f"class : {student[7]}")
                         print(f"description : {student[10]}")
                         print(
-                            f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
-                        print(f"status : {student[12]}")
+                            f"php : {student[8]} - python : {student[9]}")
+                        print(f"status : {student[12]}", end="\n\n\n")
                 # endregion
 
-                active_menu = input("1.national code 2.phone 3.code 4.exit")
+                print("1.national code 2.phone 3.code 4.exit")
+                active_menu = input("enter active menu :")
                 system("cls")
 
                 if active_menu == "4":
@@ -671,11 +685,11 @@ while True:
                         nationalcode = input("national code (exit): ")
                         system("cls")
 
-                        if code == "exit":
+                        if active_menu == "exit":
                             break
 
                         for student in student_list:
-                            if student[5] == nationalcode:
+                            if student[4] == nationalcode:
                                 student[12] = "active"
                                 break
                         else:
@@ -685,7 +699,7 @@ while True:
                         phonee = input("phone (exit): ")
                         system("cls")
 
-                        if code == "exit":
+                        if phonee == "exit":
                             break
 
                         for student in student_list:
@@ -724,11 +738,12 @@ while True:
                         print(f"class : {student[7]}")
                         print(f"description : {student[10]}")
                         print(
-                            f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
-                        print(f"status : {student[12]}")
+                            f"php : {student[8]} - python : {student[9]}")
+                        print(f"status : {student[12]}", end="\n\n\n")
                 # endregion
 
-                deactive_menu = input("1.national code 2.phone 3.code 4.exit")
+                print("1.national code 2.phone 3.code 4.exit")
+                deactive_menu = input("enter active menu :")
                 system("cls")
 
                 if deactive_menu == "4":
@@ -739,11 +754,11 @@ while True:
                         nationalcode = input("national code (exit): ")
                         system("cls")
 
-                        if code == "exit":
+                        if nationalcode == "exit":
                             break
 
                         for student in student_list:
-                            if student[5] == nationalcode:
+                            if student[4] == nationalcode:
                                 student[12] = "deactive"
                                 break
                         else:
@@ -753,7 +768,7 @@ while True:
                         phonee = input("phone (exit): ")
                         system("cls")
 
-                        if code == "exit":
+                        if phonee == "exit":
                             break
 
                         for student in student_list:
@@ -778,19 +793,28 @@ while True:
                             print(code, "does not exist")
 
         case "PHP" | "8":
-            for student in student_list:
-                php_list.append(student[8])
-                system('cls')
-            
-            print(f"the best php score is {max(php_list)}")
-
+            while True:
+                for student in student_list:
+                    php_list.append(student[8])
+                    system('cls')
                 
+                print(f"the best php score is {max(php_list)}")
+
+                if input("press enter to continue :") == "":
+                        system('cls')
+                        break
 
         case "PY" | "9":
-            for student in student_list:
-                python_list.append(student[9])
-                system('cls')
-                print(f"the best python score is {max(python_list)}")
+            while True:
+                for student in student_list:
+                    python_list.append(student[9])
+                    system('cls')
+
+                    print(f"the best python score is {max(python_list)}")
+                    
+                    if input("press enter to continue :") == "":
+                        system('cls')
+                        break
 
 
         case "EX" | "10":
