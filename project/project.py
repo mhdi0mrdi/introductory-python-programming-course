@@ -11,8 +11,8 @@ student_list = [["mahdi", "moradi", "male", "19", "0110523555", "09022333616",
                            "abazar", "B", "76", "45", "hichi", "1002", "deactive"],
                            ["bahar", "davoudi", "female", "22", "05432445643", "09051287889",
                            "iran", "C", "99", "78", "hichiz", "1003", "deactive"],
-                           ["soheil", "ezazi", "male", "18", "0577879090", "09051888900",
-                           "marzdaran", "D", "34", "15", "hichiii", "1003", "active"]]
+                           ["sajad", "nokhbe", "male", "18", "0577879090", "09051888900",
+                           "ankara", "D", "34", "15", "hichiii", "1004", "active"]]
 php_list = []
 python_list = []
 
