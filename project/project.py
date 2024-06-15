@@ -216,7 +216,7 @@ while True:
                 print(f"description : {student[10]}")
                 print(
                     f"php : {student[8]} - python : {student[9]}")
-                print(f"status : {student[12]}" "end=\n\n\n")
+                print(f"status : {student[12]}", end="\n\n\n")
 
             display_index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -226,6 +226,7 @@ while True:
 
         case "R" | "3":
             while True:
+
                 if input("Are you sure delete all students? (yes,etc) :") == "yes":
                     system("cls")
                     student_list.clear()
@@ -233,9 +234,8 @@ while True:
                     sleep(2)
                     system('cls')
                     break
-                else:
-                    system('cls')
-                    
+                
+                system('cls')
 
                 # region show students
                 for student in student_list:
@@ -248,67 +248,68 @@ while True:
                     print(f"description : {student[10]}")
                     print(
                         f"php : {student[8]} - python : {student[9]}")
-                    print(f"status : {student[12]}" "end=\n\n\n")
+                    print(f"status : {student[12]}", end="\n\n\n")
                 # endregion
-                    # region set remove index
-                    while True:
-                        remove_colomn = input(
-                            "select remove colomn (1.name 2.family 3.gender 4.national code 5.phone 6.class 7.student code) :")
-                        system("cls")
 
-                        if remove_colomn in ["1", "2", "3", "4", "5", "6", "7"]:
-                            break
-
-                        print("error!")
-                    # endregion
-                    match remove_colomn:
-                        case "1":
-                            remove_index = 0
-                        case "2":
-                            remove_index = 1
-                        case "3":
-                            remove_index = 2
-                        case "4":
-                            remove_index = 4
-                        case "5":
-                            remove_index = 5
-                        case "6":
-                            remove_index = 7
-                        case "7":
-                            remove_index = 11
-
-                        # endregion
-
-                    remove_value = input("remove value :")
+                # region set remove index
+                while True:
+                    remove_colomn = input(
+                        "select remove colomn (1.name 2.family 3.gender 4.national code 5.phone 6.class 7.student code) :")
                     system("cls")
-                    check_find = False
 
-                    for student in deepcopy(student_list):
-                        if student[student_list] == remove_value:
-                            check_find = True
-                            print(f"fullname : {student[0]} {
-                                student[1]} - age : {student[3]}")
-                            print(f"gender :, {
-                                  student[2]} - phone : {student[5]} ")
-                            print(f"nationalcode : {
-                                  student[4]} - stdcode : {student[11]}")
-                            print(f"address : {student[6]}")
-                            print(f"class : {student[7]}")
-                            print(f"description : {student[10]}")
-                            print(
-                                f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
-                            print(f"status : {student[12]}")
+                    if remove_colomn in ["1", "2", "3", "4", "5", "6", "7"]:
+                        break
 
-                            if input("Are you sure delete this student (yes-etc) : ") == "yes":
-                                system("cls")
-                                student_list.remove(student)
-                                print("Done!!!")
-                            else:
-                                system("cls")
+                    print("error!")
+                # endregion
 
-                    # if check_find == False:
-                    if not check_find:
-                        print(f"{remove_value} not found")
+                match remove_colomn:
+                    case "1":
+                        remove_index = 0
+                    case "2":
+                        remove_index = 1
+                    case "3":
+                        remove_index = 2
+                    case "4":
+                        remove_index = 4
+                    case "5":
+                        remove_index = 5
+                    case "6":
+                        remove_index = 7
+                    case "7":
+                        remove_index = 11
+
+                remove_value = input("remove value :")
+                system("cls")
+
+
+                check_find = False
+
+                for student in deepcopy(student_list):
+                    if student[remove_index] == remove_value:
+                        check_find = True
+                        print(f"fullname : {student[0]} {
+                            student[1]} - age : {student[3]}")
+                        print(f"gender :, {
+                                student[2]} - phone : {student[5]} ")
+                        print(f"nationalcode : {
+                                student[4]} - stdcode : {student[11]}")
+                        print(f"address : {student[6]}")
+                        print(f"class : {student[7]}")
+                        print(f"description : {student[10]}")
+                        print(
+                            f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
+                        print(f"status : {student[12]}")
+
+                        if input("Are you sure delete this student (yes-etc) : ") == "yes":
+                            system("cls")
+                            student_list.remove(student)
+                            print("Done!!!")
+                        else:
+                            system("cls")
+
+                if not check_find:
+                    print(f"{remove_value} not found")
 
         case "E" | "4":
             while True:
@@ -338,6 +339,7 @@ while True:
                 print(f"address : {student[6]}")
                 print(f"class : {student[7]}")
                 print(f"description : {student[10]}")
+                # FIXME fix end in print (active menu)
                 print(
                     f"php : {student[8]} - python : {student[9]}", end="\n\n\n")
                 print(f"status : {student[12]}")
@@ -364,6 +366,7 @@ while True:
                 else:
                     print(f"{search_value} not found")
                     continue
+
 
                 while True:
                     print("\nFind student :")
@@ -394,7 +397,8 @@ while True:
                             if new_name == "":
                                 print("error! field is empty")
                                 continue
-
+                            
+                            # BUG remove check unique name
                             if new_name == find_student[0]:
                                 break
 
@@ -417,6 +421,7 @@ while True:
                                 print("error! field is empty")
                                 continue
 
+                            # BUG remove check unique family
                             if new_family == find_student[1]:
                                 break
 
@@ -443,6 +448,7 @@ while True:
                                 print("invalid gender!")
                                 continue
 
+                            # BUG remove unique gender
                             if new_gender == find_student[2]:
                                 break
 
@@ -460,6 +466,7 @@ while True:
                         new_age = int(input("age :"))
                         system("cls")
 
+                        # BUG check age!!!
                         if age not in range(7, 50):
                             print("error! out of range")
                             continue
@@ -479,6 +486,8 @@ while True:
                                 print("field is empty")
                                 continue
 
+                            # INCOMPLETE check new nationalcode equals with old nationalcode
+
                             for student in student_list:
                                 if student[4] == new_national_code:
                                     print(f"{new_national_code} already exist")
@@ -497,6 +506,9 @@ while True:
                             if new_phone == "":
                                 print("field is empty")
                                 continue
+
+                            # INCOMPLETE check new phone equals with old phone
+
 
                             for student in student_list:
                                 if student[5] == new_phone:
@@ -520,15 +532,15 @@ while True:
                             new_class_ = input("class :(A,B,C,D)")
                             system("cls")
 
+                            if new_class_ in ("A", "B", "C", "D"):
+                                break
+
+                            # RECHECK check if 
                             if new_class_ == "":
                                 print("error! field is empty")
-                                continue
-
-                            elif new_class_ not in ("A", "B", "C", "D"):
-                                print("error! invalid class")
-                                continue
                             else:
-                                break
+                                print("error! invalid class")
+
                         # endregion
                         find_student[7] = new_class_
 
@@ -571,6 +583,7 @@ while True:
                             new_status = input("Status (active - deactive) : ")
                             system("cls")
 
+                            #RECHECK change list to tuple for constant value
                             if new_status in ["active", "deactive"]:
                                 break
 
@@ -601,14 +614,14 @@ while True:
                 search_menu = input("search item :")
                 system('cls')
 
-                if search_menu in ["1", "N", "2", "F", "3", "G", "4", "A",
+                if search_menu in ("1", "N", "2", "F", "3", "G", "4", "A",
                                    "5", "NA", "6", "P", "7", "S", "8", "C", "9",
-                                   "PHP", "10", "PY", "11", "E"]:
+                                   "PHP", "10", "PY", "11", "E"):
                     break
 
                 print("error!!!")
             # endregion
-
+            # BUG check continue
             if search_menu in ["11", "E"]:
                 continue
             
@@ -650,6 +663,8 @@ while True:
                     print(
                         f"php : {student[8]} - python : {student[9]}")
                     print(f"status : {student[12]}" "end=\n\n\n")
+
+                    # BUG check break 
                     if input("press enter to continue :") == "":
                         system('cls')
                         break
@@ -670,9 +685,12 @@ while True:
                         print(f"description : {student[10]}")
                         print(
                             f"php : {student[8]} - python : {student[9]}")
+
+                        # FIXME fix end in print (active menu)
                         print(f"status : {student[12]}", end="\n\n\n")
                 # endregion
 
+                # INCOMPLETE fix it with while true(deactive menu)
                 print("1.national code 2.phone 3.code 4.exit")
                 active_menu = input("enter active menu :")
                 system("cls")
@@ -680,6 +698,7 @@ while True:
                 if active_menu == "4":
                     break
 
+                # RECHECK recheck case and for(deactive menu)
                 match active_menu:
                     case "1":
                         nationalcode = input("national code (exit): ")
@@ -739,9 +758,12 @@ while True:
                         print(f"description : {student[10]}")
                         print(
                             f"php : {student[8]} - python : {student[9]}")
+                        # FIXME fix end in print (deactive menu)
                         print(f"status : {student[12]}", end="\n\n\n")
                 # endregion
 
+
+                # INCOMPLETE fix it with while true(deactive menu)
                 print("1.national code 2.phone 3.code 4.exit")
                 deactive_menu = input("enter active menu :")
                 system("cls")
@@ -749,6 +771,8 @@ while True:
                 if deactive_menu == "4":
                     break
 
+
+                # RECHECK recheck case and for(deactive menu)
                 match deactive_menu:
                     case "1":
                         nationalcode = input("national code (exit): ")
@@ -805,17 +829,16 @@ while True:
                         break
 
         case "PY" | "9":
-            while True:
-                for student in student_list:
-                    python_list.append(student[9])
-                    system('cls')
+            max_python = -1 
 
-                    print(f"the best python score is {max(python_list)}")
-                    
-                    if input("press enter to continue :") == "":
-                        system('cls')
-                        break
+            for student in student_list:
+                if student[9]>max_python:
+                    max_python = student[9]
+            
 
+            for student in student_list:
+                if student[9] == max_python:
+                    print(*student)
 
         case "EX" | "10":
             break

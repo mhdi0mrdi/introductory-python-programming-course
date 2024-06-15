@@ -11,7 +11,7 @@
 # while flag:
 #     system("cls")
 
-#     #TODO
+
 
 #     if input("DO you want to continue(yes-etc) ?") != "yes":
 #         flag = False
