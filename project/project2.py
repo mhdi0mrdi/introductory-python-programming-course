@@ -146,60 +146,59 @@ while True:
                     print("Done!")
                     break
 
-                else:
+                system("cls")
+
+                # region get remove column
+                while True:
+                    remove_column = input(
+                        "Select remove column (1.brand 2.model 3.color 4.code) : ")
                     system("cls")
 
-                    # region get remove column
-                    while True:
-                        remove_column = input(
-                            "Select remove column (1.brand 2.model 3.color 4.code) : ")
-                        system("cls")
+                    if remove_column in ("1", "2", "3", "4"):
+                        break
 
-                        if remove_column in ["1", "2", "3", "4"]:
-                            break
+                    print("Error!")
+                # endregion
 
-                        print("Error!")
-                    # endregion
+                # region set remove index
+                match remove_column:
+                    case "1":
+                        remove_index = 0
+                    case "2":
+                        remove_index = 1
+                    case "3":
+                        remove_index = 2
+                    case "4":
+                        remove_index = 4
+                # endregion
 
-                    # region set remove index
-                    match remove_column:
-                        case "1":
-                            remove_index = 0
-                        case "2":
-                            remove_index = 1
-                        case "3":
-                            remove_index = 2
-                        case "4":
-                            remove_index = 4
-                    # endregion
+                # region show cars
+                print("sort\tbrand\tmodel\tcolor\description\tcar code")
+                print("__________________________________________________")
+                for id_, car in enumerate(car_list, 1):
+                    print(id_, *car, sep="\t")
+                print("___________________________________________________")
+                # endregion
 
-                    # region show cars
-                    print("sort\tbrand\tmodel\tcolor\description\tcar code")
-                    print("__________________________________________________")
-                    for id_, car in enumerate(car_list, 1):
-                        print(id_, *car, sep="\t")
-                    print("___________________________________________________")
-                    # endregion
+                remove_value = input("remove value : ")
+                system("cls")
+                check_find = False
 
-                    remove_value = input("remove value : ")
-                    system("cls")
-                    check_find = False
+                for car in deepcopy(car_list):
+                    if car[remove_index] == remove_value:
+                        check_find = True
+                        print(f"brand :{car[0]}, brand :{car[1]}, Color :{
+                                car[2]}, code :{car[4]}")
 
-                    for car in deepcopy(car_list):
-                        if car[remove_index] == remove_value:
-                            check_find = True
-                            print(f"brand :{car[0]}, brand :{car[1]}, Color :{
-                                  car[2]}, code :{car[4]}")
+                        if input("Are you sure delete this car (yes-etc) : ") == "yes":
+                            system("cls")
+                            car_list.remove(car)
+                            print("Done!!!")
+                        else:
+                            system("cls")
 
-                            if input("Are you sure delete this car (yes-etc) : ") == "yes":
-                                system("cls")
-                                car_list.remove(car)
-                                print("Done!!!")
-                            else:
-                                system("cls")
-
-                    if not check_find:
-                        print(f"{remove_value} not found")
+                if not check_find:
+                    print(f"{remove_value} not found")
 
         case "4":
             # region get search menu
@@ -212,13 +211,13 @@ while True:
                 search_menu = input("search item :")
                 system("cls")
 
-                if search_menu in ["1", "2", "3", "4", "5"]:
+                if search_menu in ("1", "2", "3", "4", "5"):
                     break
 
                 print("Error!!")
             # endregion
 
-            if search_menu in ["5", "E"]:
+            if search_menu in ("5", "E"):
                 continue
 
             value = input("Search value : ")
@@ -237,8 +236,7 @@ while True:
             for car in car_list:
                 if car[search_index] == value:
                     print(*car, sep="\t")
-
-
+ 
         case "5" :
             break
 
