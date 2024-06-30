@@ -5,3 +5,9 @@
 
 # res = data1 -+*/ data2  # typeError
 # res = data1 -+*/ 3  # typeError
+
+
+
+
+
+
