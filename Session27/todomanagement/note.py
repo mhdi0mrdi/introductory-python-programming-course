@@ -25,3 +25,7 @@ py - 3.12 - m pip uninstall openpyxl
 py - 3.12 - m pip list
 py - 3.12 - m pip freeze > reqirements.txt
 py - 3.12 - m pip show openpyxl
+
+
+
+# venv
