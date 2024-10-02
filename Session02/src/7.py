@@ -22,6 +22,10 @@
 #         print(num, "is even")
 
 
+
+
+
+
 # season = int(input("Season : "))
 
 # match season:
@@ -35,6 +39,8 @@
 #         print("Winter")
 #     case _:
 #         print("Error")
+
+
 
 
 # if season==1:
@@ -56,18 +62,18 @@
 
 
 
-# score = float(input("score : "))
+score = float(input("score : "))
 
 
-# match score:
-#     case num if 0<=num<50:
-#         print("fail")
+match score:
+    case score if 0<=score<50:
+        print("fail")
 
-#     case num if 50<=num<=100:
-#         print("fail")
+    case num if 50<=num<=100:
+        print("fail")
 
-#     case _:
-#         print("Error")
+    case _:
+        print("Error")
 
 
 # if 0<=score<50:

@@ -14,11 +14,11 @@
 # 20    baba
 
 
-# i = 1
+i = 1
 
-# while i<=1200:
-#     print("baba")
-#     i += 1
+while i<=1200:
+    print("baba")
+    i += 1
 
 
 # i = i * 56

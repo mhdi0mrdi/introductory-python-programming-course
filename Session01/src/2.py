@@ -7,27 +7,20 @@
 # با عدد شرئع نمیشه
 
 
-
 # False	def	if	raise
 # None	del	import	return
 # True	elif	in	try
 # and	else	is	while
 # as	except	lambda	with
 # assert	finally	nonlocal	yield
-# break	for	not	
-# class	from	or	
+# break	for	not
+# class	from	or
 # continue	global	pass
 
 # if_ = 15
 
 
-
-
-
-# camelcase
+# snakecase
 # my_age = 32
 
 # sum_ = 12
-
-
-

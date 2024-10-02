@@ -31,13 +31,13 @@
 
 
 
-# num = int(input("num : "))
+num = int(input("num : "))
 
 
-# if num%2==0:
-#     print("hiii")
+if num%2==0:
+    print("hiii")
 
-# if num%5==0:
-#     print("bye")
+if num%5==0:
+    print("bye")
 
 
