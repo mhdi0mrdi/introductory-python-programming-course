@@ -8,11 +8,16 @@ data2 = [3, 4, 5]
 # res = data1 + data2
 # res = data1.__add__(data2)
 
-# res = data1 -*/ data2  # TypeError
-
 
 # res = data1 * 3
 # res = data1.__mul__(3)
+
+
+
+
+
+# res = data1 -*/ data2  # TypeError
+
 
 
 # res = data1 +-/ 3  # TypeError

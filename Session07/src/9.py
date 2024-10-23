@@ -1,7 +1,7 @@
 from os import system
 
 
-number_of_player = 2
+number_of_player = 20
 player_list = [None] * (number_of_player*3)
 
 # set

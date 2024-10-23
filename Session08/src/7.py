@@ -24,12 +24,12 @@ data = ["meisam", "ilka", 32, True]
 #     print(index+1, data[index])
 
 
-data = ["meisam", "ilka", 32, True]
+# data = ["meisam", "ilka", 32, True]
 
 
 # for index, item in enumerate(data):
 #     print(index, item)
 
 
-for index, item in enumerate(data, 1):
-    print(index, item)
+# for index, item in enumerate(data, 1):
+#     print(index, item)
