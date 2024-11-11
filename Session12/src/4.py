@@ -1,6 +1,6 @@
 
 
-# data = ["meisam", "ilka", 32, True, 32]
+data = ["meisam", "ilka", 32, True, 32]
 
 
 # res = data.count(32)
