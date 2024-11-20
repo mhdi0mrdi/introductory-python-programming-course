@@ -56,7 +56,7 @@ data = {"name": "meisam", "family": "ilka", "age": 32}
 
 
 # set
-# data["name"] = "mhdi"
-data["score"] = 100
+data["name"] = "mhdi"
+# data["score"] = 100
 
 print(data)

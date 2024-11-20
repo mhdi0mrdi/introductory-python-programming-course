@@ -1,4 +1,4 @@
-data = {"name": "meisam", "family": "ilka", "age": 32}
+# data = {"name": "meisam", "family": "ilka", "age": 32}
 
 
 # res = data["name"]
@@ -14,11 +14,14 @@ data = {"name": "meisam", "family": "ilka", "age": 32}
 # res = data.pop("ncode", 0)
 
 # res = data.popitem()
+data = {"name": "meisam", "family": "ilka", "age": 32}
 
-new_data = {"name":"mhdi", "family":"mrdi", "gender":"male"}
+# new_data = {"name":"mhdi", "family":"mrdi", "gender":"male"}
 
-# res = data.update(new_data)
-# res = data.update([("gender","male"), ("name","mehdi")])
+
+
+# data.update(new_data)
+# data.update([("gender","male"), ("name","mehdi")])
 # res = data.update((("gender","male"), ("name","mehdi")))
 res = data.update(gender="male", ncode="04300", age=19)
 

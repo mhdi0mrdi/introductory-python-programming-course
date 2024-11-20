@@ -16,7 +16,7 @@
 # data = {i: i for i in range(1, 11) if i % 2 == 0}
 # data = {i: i**2 for i in range(1, 11)}
 # data = {(i):("even" if i%2==0 else "odd") for i in range(1, 11)}
-# data = {(i**2 if i%2==0 else i**3):("even" if i%2==0 else "odd") for i in range(1, 11)}
+data = {(i**2 if i%2==0 else i**3):("even" if i%2==0 else "odd") for i in range(1, 11)}
 
 
 data1 = {"name": "meisam", "family": "ilka", "age": 32}

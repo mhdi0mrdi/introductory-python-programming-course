@@ -2,19 +2,19 @@
 from collections import namedtuple
 
 # # Declaring namedtuple()
-# Contact = namedtuple('Contact', ['name', 'family', 'phone'])
+Contact = namedtuple('Contact', ['name', 'family', 'phone'])
 
 # # # Adding values
 # cnt = Contact('Meisam', 'Ilka', '09369230358')
-# cnt = Contact(name='Meisam', family='Ilka', phone='09369230358')
+cnt = Contact(name='Meisam', family='Ilka', phone='09369230358')
 
 
 # # Access using index
 # print("The Contact name using index is : ", end="")
-# print(cnt[0])
 
 # # Access using name
 # print("The Contact name using keyname is : ", end="")
+# print(cnt[0])
 # print(cnt.name)
 
 
@@ -48,9 +48,9 @@ Contact = namedtuple('Contact', ('name', 'family', 'phone'))
 
 
 # # # Access using index
-# print(cnt[0])
-# print(cnt.name)
-# print(getattr(cnt, 'name'))
+print(cnt[0])
+print(cnt.name)
+print(getattr(cnt, 'name'))
 
 
 # # using _asdict() to return an OrderedDict()
